@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-chalk text-ink font-sans font-light;
+    font-weight: 300;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  /* No blue links — underline + Ink only. */
+  a {
+    @apply text-ink underline;
+  }
+}
+
+@layer components {
+  /* Primary action: Ink surface, Acid Lime never sits on a light background. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-ink text-white font-medium
+           px-6 py-3 rounded-none border border-ink no-underline
+           transition-colors hover:bg-[#111];
+  }
+  .btn-primary .accent {
+    @apply text-lime;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-white text-ink font-medium
+           px-6 py-3 rounded-none border border-ink no-underline
+           transition-colors hover:bg-linen;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center bg-transparent text-ink font-medium
+           px-4 py-2 rounded-none border border-transparent no-underline
+           hover:border-ink transition-colors;
+  }
+  .label {
+    @apply font-medium text-ink;
+  }
+  .field-input {
+    @apply w-full bg-white border border-ink rounded-none px-3 py-2 font-light text-ink
+           outline-none focus:ring-0 focus:border-ink;
+  }
+  .field-input.invalid {
+    @apply border-red-700 bg-[#fff5f5];
+  }
+  .card {
+    @apply bg-white border border-ink rounded-none;
+  }
+}
